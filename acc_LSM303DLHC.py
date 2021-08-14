@@ -22,8 +22,8 @@ class acc_LSM303DLHC(object):
 		return x_acc
 
 	def get_y_acc(self):
-		msb = self.bus.read_byte_data(self.acc_address,0x2a)
-		lsb = self.bus.read_byte_data(self.acc_address,0x2b)
+		msb = self.bus.read_byte_data(self.acc_address,0x2b)
+		lsb = self.bus.read_byte_data(self.acc_address,0x2a)
 		y_acc = msb*256 + lsb
 		if y_acc > 32767:
 			y_acc -= 65536
@@ -31,8 +31,8 @@ class acc_LSM303DLHC(object):
 		return y_acc
 
 	def get_z_acc(self):
-		msb = self.bus.read_byte_data(self.acc_address,0x2c)
-		lsb = self.bus.read_byte_data(self.acc_address,0x2d)
+		msb = self.bus.read_byte_data(self.acc_address,0x2d)
+		lsb = self.bus.read_byte_data(self.acc_address,0x2c)
 		# msb = self.two_complement_to_byte(msb)
 		z_acc = msb*256 + lsb
 		if z_acc > 32767:
